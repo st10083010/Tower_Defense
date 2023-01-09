@@ -2,6 +2,8 @@ Tower Defense
 開發筆記
 Unity版本: 2021.3.2f1
 最後更新日: 2023-01-08
+開發時數: 14.5
+暫計: 
 
 程式API使用查詢: https://docs.unity3d.com/ScriptReference/index.html
 使用介面查詢: https://docs.unity3d.com/Manual/index.html
@@ -31,7 +33,11 @@ Unity版本: 2021.3.2f1
 額外補充
 關於四元數(Quaternion)
 https://douduck08.wordpress.com/2016/06/26/usage-of-unity-quaternion/
+
 2023
+01-09
+子彈發射後只會出現一次, 需要除bug, 從第五部的13:23開始找問題
+如果解決, 直接開始第六部
 01-08
 建立UI時, 使用TextMesh Pro
 
