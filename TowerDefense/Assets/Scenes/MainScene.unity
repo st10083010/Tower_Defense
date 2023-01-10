@@ -15984,7 +15984,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1175898203501622461, guid: c48171ba7c9f94547b839b9f5257a37f, type: 3}
       propertyPath: fireRate
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1175898203501622462, guid: c48171ba7c9f94547b839b9f5257a37f, type: 3}
       propertyPath: m_Name
