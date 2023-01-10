@@ -1,7 +1,7 @@
 Tower Defense
 開發筆記
 Unity版本: 2021.3.2f1
-最後更新日: 2023-01-08
+最後更新日: 2023-01-10
 開發時數: 14.5
 暫計: 
 
@@ -35,6 +35,18 @@ Unity版本: 2021.3.2f1
 https://douduck08.wordpress.com/2016/06/26/usage-of-unity-quaternion/
 
 2023
+01-10
+解決發射後只會出現一次的BUG, 原因是Turret.cs的update method中
+程式沒有進入
+if (fireCountdown <= 0f)
+{
+    Shoot();
+    fireCountdown = 1f / fireRate;
+}
+VScode中設置fireRate = 1, 但是unity編輯器(編譯器?)中的fireRate設置成0
+1除以0是不合理的, 實際上用print或Debug.log()檢查fireCountdown
+會發現fireCountdown會回傳Infinty, Infinty不等於0
+所以你的砲塔只會發射第一次的子彈(因為fireRate = 1)
 01-09
 子彈發射後只會出現一次, 需要除bug, 從第五部的13:23開始找問題
 如果解決, 直接開始第六部
