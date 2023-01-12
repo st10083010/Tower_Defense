@@ -2,8 +2,8 @@ Tower Defense
 開發筆記
 Unity版本: 2021.3.2f1
 最後更新日: 2023-01-10
-開發時數: 14.5
-暫計: 
+開發時數: 15.5
+暫計: 01-12 21:09~22:15
 
 程式API使用查詢: https://docs.unity3d.com/ScriptReference/index.html
 使用介面查詢: https://docs.unity3d.com/Manual/index.html
@@ -12,12 +12,6 @@ Unity版本: 2021.3.2f1
 
 起點是藍色, 終點是綠色
 
-製作流程
-1. 先開發地圖, 從小方格開始慢慢擴大, 接著刪除不必要的方格當作敵人的攻擊路線
-2. 設置起點與終點, 設置敵人並設成預置物, 製作完成後可先刪除在Hierarchy中的敵人物件, 接著製作導航點(waypoint), 讓敵人沿著導航點前進, 一路前進到終點
-3. 開始寫程式, 建立一個長度為導航點總數的陣列, 利用for loop走訪導航點並添加至該陣列中
-4. 將敵人預置物移到起點並設置敵人移動的程式
-5. 製作敵人重生點, 製作UI
 
 注意事項
 0. 需要找時間替換文字樣式而不使用預設
@@ -35,6 +29,8 @@ Unity版本: 2021.3.2f1
 https://douduck08.wordpress.com/2016/06/26/usage-of-unity-quaternion/
 
 2023
+01-12
+利用單例模式(Sigleton pattern)來設計建築管理員
 01-10
 解決發射後只會出現一次的BUG, 原因是Turret.cs的update method中
 程式沒有進入
