@@ -355,6 +355,8 @@
 "Assets/Scripts/Enemies/EneimiesMovement.cs"
 "Assets/Scripts/Enemies/WaveSpawner.cs"
 "Assets/Scripts/Enemies/Waypoint.cs"
+"Assets/Scripts/Others/Node.cs"
+"Assets/Scripts/Weapons/BuildManager.cs"
 "Assets/Scripts/Weapons/Bullet.cs"
 "Assets/Scripts/Weapons/Turret.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
