@@ -23,12 +23,18 @@ Unity版本: 2021.3.2f1
 3. Scene視窗右上角的Shading mode可以切換Scene中的物件渲染方式
 4. 如果需要讓建模旋轉, 可以建立空的Game Object在交接處, 讓建模成為他的子物件, 然後旋轉那個空的Game Object
 注意, 要讓空Game Object跟建模的方向一樣, 不然旋轉時畫面會很奇怪
+5. 要設置輸入或查看 axisName(Input.GetAxis()) 的選項，請轉到Edit > Project Settings > Input Manager。
+具體使用查看Script API: Input.GetAxis()
 
 額外補充
 關於四元數(Quaternion)
 https://douduck08.wordpress.com/2016/06/26/usage-of-unity-quaternion/
 
 2023
+01-13
+製作鏡頭移動, 滑鼠滾輪的滾動不同於點擊左右鍵或按下鍵盤, 滾動不是布林值, 而是一個數值持續增加或減少
+而滾動速度會影響數值的增加或減少速度
+
 01-12
 利用單例模式(Sigleton pattern)來設計建築管理員
 01-10
