@@ -17,18 +17,20 @@ public class BuildManager : MonoBehaviour
     }
 
 
-    public GameObject basicTurretPrefab; // 遊戲開始時預設的砲塔預置物
+    public GameObject basicTurretPrefab;
+    public GameObject missileLauncherPrefab;
 
-    void Start() 
-    {
-        turretToBuild = basicTurretPrefab;
-    }
 
     private GameObject turretToBuild; // 要建造的砲塔
 
     public GameObject GetTurretTobuild()
     {
         return turretToBuild;
+    }
+
+    public void SetTurretToBuild(GameObject turret)
+    {
+        turretToBuild = turret;
     }
 
 }

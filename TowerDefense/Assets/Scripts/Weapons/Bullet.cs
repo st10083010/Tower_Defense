@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
 
     public float bulletSpeed = 70f; // 子彈速度
     public GameObject impactEffect; // 衝擊特效粒子
+    public float explosionRadius = 0f; // 爆炸半徑
     public void Chase(Transform _target)
     {
         target = _target;
@@ -32,13 +33,46 @@ public class Bullet : MonoBehaviour
             return;
         }
         transform.Translate(bulletDirection.normalized * distanceThisFrame, Space.World);
+        transform.LookAt(target); // 物件的Z軸隨著目標旋轉
     }
 
     void HitTarget()
     {
         GameObject effectInstantiate = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation); // 實體化物件
         Destroy(effectInstantiate, 2f); // 兩秒後摧毀實體化的粒子
-        Destroy(target.gameObject); // 摧毀目標
+
+        if (explosionRadius > 0f)
+        {
+            Explode();
+        }else
+        {
+            Damage(target);
+        }
+
+        
         Destroy(gameObject);
+    }
+
+    void Damage(Transform enemy)
+    {
+        Destroy(enemy.gameObject); // 摧毀目標
+    }
+
+    void Explode()
+    {
+       Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius); // 回傳碰撞到或在球體內的array
+       foreach(Collider collider in colliders)
+       {
+            if (collider.tag == "Enemy")
+            {
+                Damage(collider.transform);
+            }
+       }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
 }

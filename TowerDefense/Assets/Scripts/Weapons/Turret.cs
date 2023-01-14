@@ -11,7 +11,6 @@ public class Turret : MonoBehaviour
     public float attackRange = 15f;
     public float fireRate = 1f; // 射速
     private float fireCountdown = 0f; // 開火倒數
-    public float turnSpeed = 10f;
 
     [Header("Unity setup fields")]
     public string enemyTag = "Enemy";
@@ -19,6 +18,7 @@ public class Turret : MonoBehaviour
     public float rotationSpeed = 10f;
     public GameObject bulletPrefab; // 子彈預置物
     public Transform firePoint; // 子彈射出點
+    public float turnSpeed = 10f;
 
 
     void Start()

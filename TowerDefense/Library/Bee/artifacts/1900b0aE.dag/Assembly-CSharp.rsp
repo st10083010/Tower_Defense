@@ -357,6 +357,7 @@
 "Assets/Scripts/Enemies/Waypoint.cs"
 "Assets/Scripts/Others/CamaraManeger.cs"
 "Assets/Scripts/Others/Node.cs"
+"Assets/Scripts/UI/Shop.cs"
 "Assets/Scripts/Weapons/BuildManager.cs"
 "Assets/Scripts/Weapons/Bullet.cs"
 "Assets/Scripts/Weapons/Turret.cs"
