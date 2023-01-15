@@ -1,14 +1,14 @@
 Tower Defense
 開發筆記
 Unity版本: 2021.3.2f1
-最後更新日: 2023-01-14
-開發時數: 22.5
-暫計: 
+最後更新日: 2023-01-15
+開發時數: 27
+暫計: https://www.youtube.com/watch?v=VW90z41gd8Y&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=12
+從19:17繼續, 缺少放置砲塔時的粒子效果
 
 程式API使用查詢: https://docs.unity3d.com/ScriptReference/index.html
 使用介面查詢: https://docs.unity3d.com/Manual/index.html
 教學影片: https://www.youtube.com/watch?v=oqidgRQAMB8&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=5
-下次從第10部影片, 20:30左右開始
 
 起點是藍色, 終點是綠色
 
@@ -32,12 +32,18 @@ Unity版本: 2021.3.2f1
 額外補充
 關於四元數(Quaternion)
 https://douduck08.wordpress.com/2016/06/26/usage-of-unity-quaternion/
+中文輸出TextMesh Pro
+https://cindyalex.pixnet.net/blog/post/238930883-unity-textmeshpro-%E4%B8%AD%E6%96%87%E5%AD%97%E9%AB%94
+https://www.cg.com.tw/UnityTextMeshPro/
 
 2023
+01-15
+增加貨幣機制跟重構部分程式碼
+改善UI
 01-14
 製作商店頁面, 匯進來的圖片需先在Unity編輯器中變更, Texture Type設置成Sprite
 設定Button的OnClick()時, 先把需要的物件拉進來再選擇函數
-光線在Animator controller沒有被正常關閉, 後續要花時間處理, 
+光線在Animator controller沒有被正常關閉, 後續要花時間處理(經測試後發現只是預覽問題, 實際狀態是正常的)
 
 01-13
 製作鏡頭移動, 滑鼠滾輪的滾動不同於點擊左右鍵或按下鍵盤, 滾動不是布林值, 而是一個數值持續增加或減少

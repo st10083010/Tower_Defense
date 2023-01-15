@@ -24,7 +24,10 @@ public class WaveSpawner : MonoBehaviour
         }
 
         firstWave -= Time.deltaTime;
-        waveCountdownText.text = Mathf.Round(firstWave).ToString();
+
+        firstWave = Mathf.Clamp(firstWave, 0f, Mathf.Infinity);
+        waveCountdownText.text = string.Format("{0:00.00}", firstWave);
+        // 應該會加入時間倒數改變顏色
     }
 
     IEnumerator SpawnWave()
