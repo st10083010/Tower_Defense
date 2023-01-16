@@ -1,10 +1,10 @@
 Tower Defense
 開發筆記
 Unity版本: 2021.3.2f1
-最後更新日: 2023-01-15
-開發時數: 27
-暫計: https://www.youtube.com/watch?v=VW90z41gd8Y&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=12
-從19:17繼續, 缺少放置砲塔時的粒子效果
+最後更新日: 2023-01-16
+開發時數: 30.3
+下次開始觀看: https://www.youtube.com/watch?v=5vw7RYxvqeE&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=14
+暫計: 
 
 程式API使用查詢: https://docs.unity3d.com/ScriptReference/index.html
 使用介面查詢: https://docs.unity3d.com/Manual/index.html
@@ -37,6 +37,8 @@ https://cindyalex.pixnet.net/blog/post/238930883-unity-textmeshpro-%E4%B8%AD%E6%
 https://www.cg.com.tw/UnityTextMeshPro/
 
 2023
+01-16
+增加敵人死亡效果; 生命值系統
 01-15
 增加貨幣機制跟重構部分程式碼
 改善UI

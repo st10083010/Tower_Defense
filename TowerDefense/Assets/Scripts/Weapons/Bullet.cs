@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     public float bulletSpeed = 70f; // 子彈速度
     public GameObject impactEffect; // 衝擊特效粒子
     public float explosionRadius = 0f; // 爆炸半徑
+    public int damege = 50; // 子彈傷害
     public void Chase(Transform _target)
     {
         target = _target;
@@ -38,6 +39,7 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
+        // 擊中目標
         GameObject effectInstantiate = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation); // 實體化物件
         Destroy(effectInstantiate, 2f); // 兩秒後摧毀實體化的粒子
 
@@ -55,11 +57,19 @@ public class Bullet : MonoBehaviour
 
     void Damage(Transform enemy)
     {
-        Destroy(enemy.gameObject); // 摧毀目標
+        // 造成傷害
+        EneimiesMovement e = enemy.GetComponent<EneimiesMovement>();
+
+        if (e != null)
+        {
+            e.TakeDamage(damege);
+        }
+        
     }
 
     void Explode()
     {
+        // 爆炸
        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius); // 回傳碰撞到或在球體內的array
        foreach(Collider collider in colliders)
        {
@@ -72,6 +82,7 @@ public class Bullet : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
+        // 顯示子彈傷害範圍
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }

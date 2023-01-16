@@ -20,6 +20,8 @@ public class BuildManager : MonoBehaviour
     public GameObject basicTurretPrefab;
     public GameObject missileLauncherPrefab;
 
+    public GameObject buildEffect;
+
 
     private TurretBlueprint turretToBuild; // 要建造的砲塔
 
@@ -30,12 +32,14 @@ public class BuildManager : MonoBehaviour
 
     public void SelectTurretToBuild(TurretBlueprint turret)
     {
+        // 選擇要建立的砲塔
         turretToBuild = turret;
     }
 
 
     public void BuildTurretON(Node node)
     {
+        // 建立砲塔
         if (PlayerStats.Money < turretToBuild.cost)
         {
             print("Not enought money to build that:(");
@@ -48,6 +52,8 @@ public class BuildManager : MonoBehaviour
         // 將物件轉換為GameObject
         node.currentTurret = turret;
 
+        GameObject effect = (GameObject)Instantiate(buildEffect, node.GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
         print($"Turret build! Money left: {PlayerStats.Money}");
     }
 }
