@@ -2,8 +2,9 @@ Tower Defense
 開發筆記
 Unity版本: 2021.3.2f1
 最後更新日: 2023-01-16
-開發時數: 30.3
+開發時數: 31.3
 下次開始觀看: https://www.youtube.com/watch?v=5vw7RYxvqeE&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=14
+從 14:24開始
 暫計: 
 
 程式API使用查詢: https://docs.unity3d.com/ScriptReference/index.html
@@ -36,7 +37,15 @@ https://douduck08.wordpress.com/2016/06/26/usage-of-unity-quaternion/
 https://cindyalex.pixnet.net/blog/post/238930883-unity-textmeshpro-%E4%B8%AD%E6%96%87%E5%AD%97%E9%AB%94
 https://www.cg.com.tw/UnityTextMeshPro/
 
+預計新增
+1. [ ] 敵人被擊中時, 會閃紅光
+2. [ ] 敵我雙方生命值, 倒數計時會隨著歸零的幅度換色(綠 -> 黃 -> 紅)
+3. [ ] 考慮在UI上增加更為明確的金錢、倒數計時等數值, 而不是要拉到最大才看的到, 但不移除地圖上的UI
+4. [ ] 平衡性調整: 價格、掉落金幣、砲塔射速、起始金額、波次時間、砲塔範圍等等
+
 2023
+01-17
+增加雷射砲塔, 光束設置中
 01-16
 增加敵人死亡效果; 生命值系統
 01-15

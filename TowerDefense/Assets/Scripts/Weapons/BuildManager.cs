@@ -17,9 +17,6 @@ public class BuildManager : MonoBehaviour
     }
 
 
-    public GameObject basicTurretPrefab;
-    public GameObject missileLauncherPrefab;
-
     public GameObject buildEffect;
 
 
