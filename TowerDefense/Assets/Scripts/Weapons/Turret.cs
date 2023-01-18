@@ -7,16 +7,22 @@ public class Turret : MonoBehaviour
 {
     private Transform target;
 
-    [Header("Attributes")] // 自定義Header, 用於整理Unity編輯器中顯示的public數據
+    [Header("General")] // 自定義Header, 用於整理Unity編輯器中顯示的public數據
     public float attackRange = 15f;
+
+    [Header("Use Bullets (default)")]
+    public GameObject bulletPrefab; // 子彈預置物
     public float fireRate = 1f; // 射速
     private float fireCountdown = 0f; // 開火倒數
+
+    [Header("Use Laser")]
+    public bool useLaser = false;
+    public LineRenderer lineRenderer;
 
     [Header("Unity setup fields")]
     public string enemyTag = "Enemy";
     public Transform partToRotate;
     public float rotationSpeed = 10f;
-    public GameObject bulletPrefab; // 子彈預置物
     public Transform firePoint; // 子彈射出點
     public float turnSpeed = 10f;
 
@@ -60,18 +66,30 @@ public class Turret : MonoBehaviour
         {
             return;
         }
-        // 鎖定目標
-        Vector3 pointEnemy = target.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(pointEnemy);
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-        
-        if (fireCountdown <= 0f)
+
+        LockOnTarget();
+
+        if (useLaser)
         {
-            Shoot();
-            fireCountdown = 1f / fireRate;
+            Laser();
+        }else{
+            if (fireCountdown <= 0f)
+            {
+                Shoot();
+                fireCountdown = 1f / fireRate;
+            }
+            fireCountdown -= Time.deltaTime;
         }
-        fireCountdown -= Time.deltaTime;
+
+    }
+
+    void Laser()
+    {
+        // 使用雷射時觸發
+        lineRenderer.SetPosition(0, firePoint.position);
+        lineRenderer.SetPosition(1, target.position);
+        print($"0: {lineRenderer.GetPosition(0)}");
+        print($"1: {lineRenderer.GetPosition(1)}");
     }
 
     void OnDrawGizmosSelected() 
@@ -83,11 +101,21 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
+        // 射擊時
         GameObject bulletGo = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation); // 實體化子彈預置物
         Bullet bullet = bulletGo.GetComponent<Bullet>();
         if (bullet != null)
         {
             bullet.Chase(target);
         }
+    }
+
+    void LockOnTarget()
+    {
+        // 鎖定目標時
+        Vector3 pointEnemy = target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(pointEnemy);
+        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * rotationSpeed).eulerAngles;
+        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
 }

@@ -2,9 +2,9 @@ Tower Defense
 開發筆記
 Unity版本: 2021.3.2f1
 最後更新日: 2023-01-16
-開發時數: 31.3
+開發時數: 32.3
 下次開始觀看: https://www.youtube.com/watch?v=5vw7RYxvqeE&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=14
-從 14:24開始
+從 22:47開始
 暫計: 
 
 程式API使用查詢: https://docs.unity3d.com/ScriptReference/index.html
@@ -42,8 +42,11 @@ https://www.cg.com.tw/UnityTextMeshPro/
 2. [ ] 敵我雙方生命值, 倒數計時會隨著歸零的幅度換色(綠 -> 黃 -> 紅)
 3. [ ] 考慮在UI上增加更為明確的金錢、倒數計時等數值, 而不是要拉到最大才看的到, 但不移除地圖上的UI
 4. [ ] 平衡性調整: 價格、掉落金幣、砲塔射速、起始金額、波次時間、砲塔範圍等等
+5. [ ] 變更雷射砲塔的雷射(要花時間研究)
 
 2023
+01-18
+光束有正常追蹤敵人但不顯示, 須找出問題
 01-17
 增加雷射砲塔, 光束設置中
 01-16
