@@ -1,10 +1,10 @@
 Tower Defense
 開發筆記
 Unity版本: 2021.3.2f1
-最後更新日: 2023-01-16
-開發時數: 32.3
-下次開始觀看: https://www.youtube.com/watch?v=5vw7RYxvqeE&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=14
-從 22:47開始
+最後更新日: 2023-01-20
+開發時數: 36.4
+下次開始觀看: https://www.youtube.com/watch?v=UOYBr9vFqYI&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=16
+從頭開始
 暫計: 
 
 程式API使用查詢: https://docs.unity3d.com/ScriptReference/index.html
@@ -29,6 +29,8 @@ Unity版本: 2021.3.2f1
 5. 要設置輸入或查看 axisName(Input.GetAxis()) 的選項，請轉到Edit > Project Settings > Input Manager。
 具體使用查看Script API: Input.GetAxis()
 6. 使用Animation控制燈光時, 要先按Preview右邊的紅色按鈕才會記錄變更點
+7. 光暈也可以用粒子(Particle System)製作, 停止粒子的移動速度再調整細節就行
+ > 粒子特效(Particle System)搭配Color Over Lifetime調整透明度, 可以達到閃爍效果
 
 額外補充
 關於四元數(Quaternion)
@@ -45,6 +47,9 @@ https://www.cg.com.tw/UnityTextMeshPro/
 5. [ ] 變更雷射砲塔的雷射(要花時間研究)
 
 2023
+01-20
+把Line renderer放在砲塔上(模仿影片)就正常了, 而不使用另外建立game object的方式
+增加雷射碰撞粒子、光線效果
 01-18
 光束有正常追蹤敵人但不顯示, 須找出問題
 01-17
