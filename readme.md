@@ -1,15 +1,15 @@
 Tower Defense
 開發筆記
 Unity版本: 2021.3.2f1
-最後更新日: 2023-01-20
-開發時數: 36.4
-下次開始觀看: https://www.youtube.com/watch?v=UOYBr9vFqYI&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=16
+最後更新日: 2023-01-21
+開發時數: 38.9
+下次開始觀看: https://www.youtube.com/watch?v=vnqRTqfk0Lo&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=17
 從頭開始
-暫計: 
+暫計:
 
 程式API使用查詢: https://docs.unity3d.com/ScriptReference/index.html
 使用介面查詢: https://docs.unity3d.com/Manual/index.html
-教學影片: https://www.youtube.com/watch?v=oqidgRQAMB8&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=5
+教學影片: https://www.youtube.com/watch?v=oqidgRQAMB8&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=1
 
 起點是藍色, 終點是綠色
 
@@ -38,6 +38,8 @@ https://douduck08.wordpress.com/2016/06/26/usage-of-unity-quaternion/
 中文輸出TextMesh Pro
 https://cindyalex.pixnet.net/blog/post/238930883-unity-textmeshpro-%E4%B8%AD%E6%96%87%E5%AD%97%E9%AB%94
 https://www.cg.com.tw/UnityTextMeshPro/
+函示執行順序
+https://kendevlog.wordpress.com/2018/09/26/unity%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98%EF%BC%9A%E8%85%B3%E6%9C%AC%E7%9A%84%E9%A0%86%E5%BA%8F-execution-order/
 
 預計新增
 1. [ ] 敵人被擊中時, 會閃紅光
@@ -45,8 +47,16 @@ https://www.cg.com.tw/UnityTextMeshPro/
 3. [ ] 考慮在UI上增加更為明確的金錢、倒數計時等數值, 而不是要拉到最大才看的到, 但不移除地圖上的UI
 4. [ ] 平衡性調整: 價格、掉落金幣、砲塔射速、起始金額、波次時間、砲塔範圍等等
 5. [ ] 變更雷射砲塔的雷射(要花時間研究)
+6. [ ] 考慮使用`Quaternion.RotateTowards`而不是`Quaternion.Lerp`來旋轉砲塔。
+ > 如果你將一個不動的敵人放在砲塔的範圍內並記錄砲塔的旋轉，你會發現它永遠不會停止轉動！
+ > 儘管它在這裡並不那麼重要，但它是一種資源的巨大浪費，因為我們需要在每一幀中一遍又一遍地計算 lerp 的東西，並且永遠不會完成 lerp！
+ >（想像一下有數千個砲塔同時旋轉並且永遠不會完成）
+ > 砲塔在某個時候停止轉動的唯一原因是因為敵人死亡或超出射程。
 
 2023
+01-21
+整理程式碼
+增加緩速功能
 01-20
 把Line renderer放在砲塔上(模仿影片)就正常了, 而不使用另外建立game object的方式
 增加雷射碰撞粒子、光線效果

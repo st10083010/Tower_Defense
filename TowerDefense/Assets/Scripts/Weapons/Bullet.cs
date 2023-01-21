@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 子彈資訊
+/// </summary>
 public class Bullet : MonoBehaviour
 {
     private Transform target; // 宣告一個變數, 被追蹤目標的位置訊息
@@ -12,6 +15,7 @@ public class Bullet : MonoBehaviour
     public int damege = 50; // 子彈傷害
     public void Chase(Transform _target)
     {
+        // 子彈跟隨
         target = _target;
     }
 
@@ -58,7 +62,7 @@ public class Bullet : MonoBehaviour
     void Damage(Transform enemy)
     {
         // 造成傷害
-        EneimiesMovement e = enemy.GetComponent<EneimiesMovement>();
+        Enemy e = enemy.GetComponent<Enemy>();
 
         if (e != null)
         {

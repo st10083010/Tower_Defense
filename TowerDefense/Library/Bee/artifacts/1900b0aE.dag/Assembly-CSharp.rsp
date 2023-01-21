@@ -353,6 +353,7 @@
 "Assets/FattyPolyTurretPart2Free/Scripts/TurretAI.cs"
 "Assets/FattyPolyTurretPart2Free/Scripts/WASDMovement.cs"
 "Assets/Scripts/Enemies/EneimiesMovement.cs"
+"Assets/Scripts/Enemies/Enemy.cs"
 "Assets/Scripts/Enemies/WaveSpawner.cs"
 "Assets/Scripts/Enemies/Waypoint.cs"
 "Assets/Scripts/Others/CamaraManeger.cs"

@@ -2,49 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 敵人行為控制
+/// </summary>
+[RequireComponent(typeof(Enemy))]
 public class EneimiesMovement : MonoBehaviour
 {   
-    [Header("Enemy Attribute")]
-    public float speed = 10f;
-    public int health = 100;
-    public int gold = 50;
-    public GameObject deathEffect; // 死亡效果
+
     private Transform target;
     private int wavepointIndex = 0;
+    private Enemy enemy;
 
     void Start() {
+        enemy = GetComponent<Enemy>();
         target = Waypoint.points[0];
     }
 
-    public void TakeDamage(int damage)
-    {
-        // 敵人受到傷害時
-        health -= damage;
-        if (health <= 0f)
-        {
-            Die();
-        }
-    }
-
-    void Die()
-    {
-        // 敵人死亡時
-        PlayerStats.Money += gold;
-        GameObject effect = (GameObject)Instantiate(deathEffect, transform.position, Quaternion.identity);
-
-        Destroy(effect, 5f);
-        Destroy(gameObject);
-    }
 
     void Update() {
         Vector3 direction = target.position - transform.position;
-        transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+        transform.Translate(direction.normalized * enemy.speed * Time.deltaTime, Space.World);
 
         if (Vector3.Distance(transform.position, target.position) <= 0.2f)
         {
             // 如果transform.position跟target.position的距離小於0.2
             GetNextWayPoint();
         }
+
+        enemy.speed = enemy.startSpeed;
     }
 
     void GetNextWayPoint()

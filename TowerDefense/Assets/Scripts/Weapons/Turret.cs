@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 攻擊設計: 1. 鎖定範圍內最近的目標並攻擊; 2. 旋轉砲塔並指向目標
+
+/// <summary>
+/// 砲塔控制
+/// </summary>
 public class Turret : MonoBehaviour
 {
     private Transform target;
+    private Enemy targetEnemy; // 目標敵人
 
     [Header("General")] // 自定義Header, 用於整理Unity編輯器中顯示的public數據
     public float attackRange = 15f;
@@ -17,6 +22,8 @@ public class Turret : MonoBehaviour
 
     [Header("Use Laser")]
     public bool useLaser = false;
+    public int damageOvertime = 30; // 每秒傷害
+    public float speedDownPercent = 0.5f; // 速度下降百分比(緩速效果)
     public LineRenderer lineRenderer; // 雷射光束
     public ParticleSystem impactEffect; // 雷射衝擊特效
     public Light impactLight; // 雷射光源
@@ -56,6 +63,7 @@ public class Turret : MonoBehaviour
         if (nearestEnemy != null && shortestDistance <= attackRange)
         {
             target = nearestEnemy.transform;
+            targetEnemy = nearestEnemy.GetComponent<Enemy>();
         }else{
             target = null;
         }
@@ -94,7 +102,11 @@ public class Turret : MonoBehaviour
     void Laser()
     {
         // 使用雷射時觸發
+        // 傷害階段
+        targetEnemy.TakeDamage(damageOvertime * Time.deltaTime);
+        targetEnemy.Slow(speedDownPercent);
 
+        // 圖片、特效處理
         if (!lineRenderer.enabled)
         {
             lineRenderer.enabled = true;
