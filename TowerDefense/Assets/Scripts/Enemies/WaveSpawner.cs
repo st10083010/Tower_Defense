@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// 波次重生
+/// </summary>
 public class WaveSpawner : MonoBehaviour
 {
     public Transform basicEnemyPrefab;
@@ -33,6 +36,7 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave()
     {
         currentWave++;
+        PlayerStats.Rounds++;
         for (int i = 0; i < currentWave; i++)
         {
             SpawnEnemy();

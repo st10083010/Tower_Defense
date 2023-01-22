@@ -38,14 +38,16 @@ public class Node : MonoBehaviour
             // 避免節點(Nodes)被其他物件(這裡是UI的Button)擋住時依然能選擇節點並觸發後續事件
             return;
 
-        if (!buildManager.CanBuild)
-            return;
+
 
         if (currentTurret != null)
         {
-            print("Can't build here");
+            buildManager.SelectNode(this);
             return;
         }
+
+        if (!buildManager.CanBuild)
+            return;
 
         buildManager.BuildTurretON(this);
     }

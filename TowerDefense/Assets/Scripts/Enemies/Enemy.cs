@@ -56,6 +56,5 @@ public class Enemy : MonoBehaviour
     public void Slow(float percent)
     {
         speed = startSpeed * (1f - percent);
-        print($"cur speed: {speed}");
     }
 }

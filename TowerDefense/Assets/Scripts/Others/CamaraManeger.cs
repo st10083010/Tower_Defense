@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// 主鏡頭控制
+/// </summary>
 public class CamaraManeger : MonoBehaviour
 {
     private bool switchCameraMovement = true; // 切換鏡頭移動
 
+    [Header("Attribute")]
     public float scrollSpeed = 5f; // 滾動速度
     public float panSpeed = 30f; // 平移速度
     public float panBorderThickness = 10f; // 邊界厚度
+
     public float panCameraMinX = -30f; // 平移鏡頭的X軸最小值
     public float panCameraMaxX = 70f; // 平移鏡頭的X軸最大值
     public float panCameraMinZ = -30f; // 平移鏡頭的Z軸最小值
@@ -16,9 +20,16 @@ public class CamaraManeger : MonoBehaviour
 
     public float scrollCamaraMinY = 10f; // 縮放鏡頭的Y軸最小值
     public float scrollCamaraMaxY = 100f; // 縮放鏡頭的Y軸最大值
-    // Update is called once per frame
+
     void Update()
     {
+        if (GameManager.GameIsOver)
+        {
+            this.enabled = false;
+            return;
+        }
+
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             switchCameraMovement = !switchCameraMovement; // 不直接設置成true或false是因為這樣可以更靈活切換, 而不是只能動一次

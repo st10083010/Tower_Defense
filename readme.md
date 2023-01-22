@@ -1,11 +1,11 @@
 Tower Defense
 開發筆記
 Unity版本: 2021.3.2f1
-最後更新日: 2023-01-21
-開發時數: 38.9
-下次開始觀看: https://www.youtube.com/watch?v=vnqRTqfk0Lo&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=17
+最後更新日: 2023-01-22
+開發時數: 43.5
+下次開始觀看: https://www.youtube.com/watch?v=vnqRTqfk0Lo&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=19
 從頭開始
-暫計:
+暫計: 
 
 程式API使用查詢: https://docs.unity3d.com/ScriptReference/index.html
 使用介面查詢: https://docs.unity3d.com/Manual/index.html
@@ -31,6 +31,10 @@ Unity版本: 2021.3.2f1
 6. 使用Animation控制燈光時, 要先按Preview右邊的紅色按鈕才會記錄變更點
 7. 光暈也可以用粒子(Particle System)製作, 停止粒子的移動速度再調整細節就行
  > 粒子特效(Particle System)搭配Color Over Lifetime調整透明度, 可以達到閃爍效果
+8. 製作遊戲結束畫面時, 先將畫面設為禁用, 再透過程式,當條件符合遊戲結束時, 啟用遊戲結束畫面
+9. 使用`UnityEngine.SceneManagement`進行場景跳轉或重新載入的相關操作
+10. 砲塔升級/販售UI: 建立一個空的`Game Object`, 放入UI(Canvas), 座標設定為當前砲塔座標, 接著把Render Mode設定成World Space, 最後切回World視角, 調整成符合遊戲視角且想要的角度
+11. 可以利用HTML5 tags給文字基本變化(Rich Text)
 
 額外補充
 關於四元數(Quaternion)
@@ -41,7 +45,7 @@ https://www.cg.com.tw/UnityTextMeshPro/
 函示執行順序
 https://kendevlog.wordpress.com/2018/09/26/unity%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98%EF%BC%9A%E8%85%B3%E6%9C%AC%E7%9A%84%E9%A0%86%E5%BA%8F-execution-order/
 
-預計新增
+預計新增/修改
 1. [ ] 敵人被擊中時, 會閃紅光
 2. [ ] 敵我雙方生命值, 倒數計時會隨著歸零的幅度換色(綠 -> 黃 -> 紅)
 3. [ ] 考慮在UI上增加更為明確的金錢、倒數計時等數值, 而不是要拉到最大才看的到, 但不移除地圖上的UI
@@ -54,6 +58,8 @@ https://kendevlog.wordpress.com/2018/09/26/unity%E9%96%8B%E7%99%BC%E7%AD%86%E8%A
  > 砲塔在某個時候停止轉動的唯一原因是因為敵人死亡或超出射程。
 
 2023
+01-22
+新增 遊戲結束UI; 砲塔升級或選擇UI;
 01-21
 整理程式碼
 增加緩速功能
