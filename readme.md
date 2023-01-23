@@ -1,9 +1,9 @@
 Tower Defense
 開發筆記
 Unity版本: 2021.3.2f1
-最後更新日: 2023-01-23
-開發時數: 48.7
-下次開始觀看: https://www.youtube.com/watch?v=vnqRTqfk0Lo&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=19
+最後更新日: 2023-01-24
+開發時數: 50.7
+下次開始觀看: https://www.youtube.com/watch?v=vnqRTqfk0Lo&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=22
 從頭開始
 暫計: 
 
@@ -15,26 +15,27 @@ Unity版本: 2021.3.2f1
 
 
 注意事項
-0. 需要找時間替換文字樣式而不使用預設
 1. UI的text已棄用, 改成`TMPro(TextMesh Pro)`
 具體使用參考: 
  > https://gamedevtraum.com/en/game-and-app-development-with-unity/basic-unity-engine-management/how-to-write-a-text-mesh-pro-text-from-script-in-unity/
  > https://www.cg.com.tw/UnityTextMeshPro/
-2. 使用模型時, 須將錨點從Center改成Pivot, 從Global改成Local
-3. Scene視窗右上角的Shading mode可以切換Scene中的物件渲染方式
-4. 如果需要讓建模旋轉, 可以建立空的Game Object在交接處, 讓建模成為他的子物件, 然後旋轉那個空的Game Object
-注意, 要讓空Game Object跟建模的方向一樣, 不然旋轉時畫面會很奇怪
-4.1 簡單來說把建模跟旋轉功能分開, 當想要旋轉建模時, 不更動原先建模的數值, 而是建立新的空Game Object, 然後調整那個空的Game Object,
+2. 使用模型時, 須將錨點從`Center`改成`Pivot`, 從`Global`改成`Local`
+3. Scene視窗右上角的`Shading mode`可以切換Scene中的物件渲染方式
+4. 如果需要讓建模旋轉, 可以建立空的`Game Object`在交接處, 讓建模成為他的子物件, 然後旋轉那個空的`Game Object`
+ > 要讓空`Game Object`跟建模的方向一樣, 不然旋轉時畫面會很奇怪
+4.1 簡單來說把建模跟旋轉功能分開, 當想要旋轉建模時, 不更動原先建模的數值, 而是建立新的空`Game Object`, 然後調整那個空的`Game Object`,
 轉動他的方向軸
-5. 要設置輸入或查看 axisName(Input.GetAxis()) 的選項，請轉到Edit > Project Settings > Input Manager。
-具體使用查看Script API: Input.GetAxis()
-6. 使用Animation控制燈光時, 要先按Preview右邊的紅色按鈕才會記錄變更點
+5. 要設置輸入或查看 `axisName(Input.GetAxis())` 的選項，請轉到`Edit > Project Settings > Input Manager`。
+具體使用查看`Script API: Input.GetAxis()`
+6. 使用Animation控制燈光時, **要先按Preview右邊的紅色按鈕才會記錄變更點**
 7. 光暈也可以用粒子(Particle System)製作, 停止粒子的移動速度再調整細節就行
- > 粒子特效(Particle System)搭配Color Over Lifetime調整透明度, 可以達到閃爍效果
-8. 製作遊戲結束畫面時, 先將畫面設為禁用, 再透過程式,當條件符合遊戲結束時, 啟用遊戲結束畫面
+ > 粒子特效(Particle System)搭配`Color Over Lifetime`調整透明度, 可以達到閃爍效果
+8. 製作遊戲結束畫面時, 先將畫面設為禁用, 再透過程式, 當條件符合遊戲結束時, 啟用遊戲結束畫面
 9. 使用`UnityEngine.SceneManagement`進行場景跳轉或重新載入的相關操作
-10. 砲塔升級/販售UI: 建立一個空的`Game Object`, 放入UI(Canvas), 座標設定為當前砲塔座標, 接著把Render Mode設定成World Space, 最後切回World視角, 調整成符合遊戲視角且想要的角度
+10. 砲塔升級/販售UI: 建立一個空的`Game Object`, 放入UI(Canvas), 座標設定為當前砲塔座標, 接著把`Render Mode`設定成`World Space`, 最後切回`World`視角, 調整成符合遊戲視角且想要的角度
 11. 可以利用HTML5 tags給文字基本變化(Rich Text)
+12. 當使用`Time.timeScale`控制時間時, 會連動畫一起控制。所以如果要在暫停畫面時繼續動畫, 要把對應動畫(此處是暫停畫面)的`Animator`中的`Update Mode`改成`Unscale Time`
+13. 如果UI的Button要做成動畫, 可以將`Transition`改成`Animation`, 點擊`Auto Generate Animation`產生並製作想要的動畫
 
 額外補充
 關於四元數(Quaternion)
@@ -61,6 +62,8 @@ https://kendevlog.wordpress.com/2018/09/26/unity%E9%96%8B%E7%99%BC%E7%AD%86%E8%A
 
 
 2023
+01-24
+增加暫停介面與特效; 重構部分程式碼
 01-23
 增加 販售機制; 販售特效
 01-22
