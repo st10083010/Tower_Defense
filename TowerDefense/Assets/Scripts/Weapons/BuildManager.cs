@@ -17,7 +17,8 @@ public class BuildManager : MonoBehaviour
     }
 
 
-    public GameObject buildEffect;
+    public GameObject buildEffect; // 建立時特效
+    public GameObject sellEffect; // 販售時特效
 
 
     private TurretBlueprint turretToBuild; // 要建造的砲塔
@@ -58,23 +59,8 @@ public class BuildManager : MonoBehaviour
         nodeUI.Hide();
     }
 
-
-    public void BuildTurretON(Node node)
+    public TurretBlueprint GetTurretToBuild()
     {
-        // 建立砲塔
-        if (PlayerStats.Money < turretToBuild.cost)
-        {
-            // print("Not enought money to build that:(");
-            return;
-        }
-        PlayerStats.Money -= turretToBuild.cost;
-
-
-        GameObject turret = (GameObject)Instantiate(turretToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);
-        // 將物件轉換為GameObject
-        node.currentTurret = turret;
-
-        GameObject effect = (GameObject)Instantiate(buildEffect, node.GetBuildPosition(), Quaternion.identity);
-        Destroy(effect, 5f);
+        return turretToBuild;
     }
 }

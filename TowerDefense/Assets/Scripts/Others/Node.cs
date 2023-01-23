@@ -15,8 +15,12 @@ public class Node : MonoBehaviour
 
     BuildManager buildManager;
 
-    [Header("Optional")]
+    [HideInInspector]
     public GameObject currentTurret; // 當前節點上的砲塔數
+    [HideInInspector]
+    public TurretBlueprint turretBlueprint;
+    [HideInInspector]
+    public bool isUpgraded = false;
 
     void Start() 
     {
@@ -31,6 +35,49 @@ public class Node : MonoBehaviour
         return transform.position + positionOffset;
     }
 
+    void BuildTurret(TurretBlueprint blueprint)
+    {
+        // 建立砲塔
+        if (PlayerStats.Money < blueprint.cost)
+        {
+            // print("Not enought money to build that:(");
+            return;
+        }
+        PlayerStats.Money -= blueprint.cost;
+
+
+        GameObject turret = (GameObject)Instantiate(blueprint.prefabLv1, GetBuildPosition(), Quaternion.identity);
+        // 將物件轉換為GameObject
+        currentTurret = turret;
+        turretBlueprint = blueprint;
+
+        GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+    }
+
+    public int GetSellAmount()
+    {
+        // 取得販售價格 = 當前砲塔建立價格 + (升級價格) 除以 2
+        int baseSellAmount = turretBlueprint.cost;
+
+        if (isUpgraded)
+        {
+            baseSellAmount += turretBlueprint.upgradeCost;
+        }
+
+        return baseSellAmount / 2;
+    }
+
+    public void SellTurret()
+    {
+        // 販售砲塔
+        PlayerStats.Money += GetSellAmount();
+        Destroy(currentTurret);
+        turretBlueprint = null;
+
+        GameObject sellingEffect = (GameObject)Instantiate(buildManager.sellEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(sellingEffect, 5f);
+    }
 
     void OnMouseDown() 
     {
@@ -49,8 +96,32 @@ public class Node : MonoBehaviour
         if (!buildManager.CanBuild)
             return;
 
-        buildManager.BuildTurretON(this);
+        BuildTurret(buildManager.GetTurretToBuild());
     }
+
+    public void UpgradeTurret()
+    {
+        // 升級砲塔
+        if (PlayerStats.Money < turretBlueprint.upgradeCost)
+        {
+            // print("Not enought money to upgrade that:(");
+            return;
+        }
+        PlayerStats.Money -= turretBlueprint.upgradeCost;
+
+        Destroy(currentTurret);
+
+
+        GameObject turret = (GameObject)Instantiate(turretBlueprint.prefabLv2, GetBuildPosition(), Quaternion.identity);
+        // 將物件轉換為GameObject
+        currentTurret = turret;
+
+        GameObject effect = (GameObject)Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(effect, 5f);
+
+        isUpgraded = true;
+    }
+
     void OnMouseEnter() 
     {
         if (EventSystem.current.IsPointerOverGameObject())
