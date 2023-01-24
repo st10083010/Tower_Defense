@@ -2,9 +2,9 @@ Tower Defense
 開發筆記
 Unity版本: 2021.3.2f1
 最後更新日: 2023-01-24
-開發時數: 50.7
-下次開始觀看: https://www.youtube.com/watch?v=vnqRTqfk0Lo&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=22
-從頭開始
+開發時數: 53.2
+下次開始觀看: https://www.youtube.com/watch?v=C_Ok4xC_xVU&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=24
+從09:41開始
 暫計: 
 
 程式API使用查詢: https://docs.unity3d.com/ScriptReference/index.html
@@ -45,6 +45,9 @@ https://cindyalex.pixnet.net/blog/post/238930883-unity-textmeshpro-%E4%B8%AD%E6%
 https://www.cg.com.tw/UnityTextMeshPro/
 函示執行順序
 https://kendevlog.wordpress.com/2018/09/26/unity%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98%EF%BC%9A%E8%85%B3%E6%9C%AC%E7%9A%84%E9%A0%86%E5%BA%8F-execution-order/
+物件池(Object pool)
+https://learn.unity.com/tutorial/introduction-to-object-pooling#
+https://tedsieblog.wordpress.com/2016/07/10/object-pool/
 
 預計新增/修改
 1. [ ] 敵人被擊中時, 會閃紅光

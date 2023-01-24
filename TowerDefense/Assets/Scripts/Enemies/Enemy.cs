@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// 敵人數值
@@ -9,9 +10,13 @@ public class Enemy : MonoBehaviour
 {
     [Header("Enemy Attribute")]
     public float startSpeed = 10f; // 起始速度
-    public float health = 100f;
+    public float startHealth = 100f; // 初始生命值
+    private float currentHealth; // 當前生命值
     public int gold = 50;
     public GameObject deathEffect; // 死亡效果
+
+    [Header("Unity Stuff")]
+    public Image healthBar; // 生命值
 
     [HideInInspector]
     public float speed;
@@ -22,6 +27,7 @@ public class Enemy : MonoBehaviour
     {
         speed = startSpeed;
         enemyDiesOnlyOne = false;
+        currentHealth = startHealth;
     }
 
     void Update()
@@ -36,8 +42,11 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         // 敵人受到傷害時
-        health -= damage;
-        if (health <= 0f)
+        currentHealth -= damage;
+
+        healthBar.fillAmount = currentHealth / startHealth;
+
+        if (currentHealth <= 0f)
         {
             enemyDiesOnlyOne = true;
         }

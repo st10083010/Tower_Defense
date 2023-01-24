@@ -41,7 +41,7 @@ public class WaveSpawner : MonoBehaviour
         {
             SpawnEnemy();
             yield return new WaitForSeconds(0.5f);
-            // 每次迭代展生的物件以間隔0.5秒的方式產出
+            // 每次迭代產生的物件以間隔0.5秒的方式產出
         }
     }
 
