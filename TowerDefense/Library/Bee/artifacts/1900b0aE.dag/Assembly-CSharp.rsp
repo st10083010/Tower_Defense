@@ -362,6 +362,7 @@
 "Assets/Scripts/System/GameManager.cs"
 "Assets/Scripts/UI/GameOver.cs"
 "Assets/Scripts/UI/LivesUI.cs"
+"Assets/Scripts/UI/MainMenu.cs"
 "Assets/Scripts/UI/MoneyUI.cs"
 "Assets/Scripts/UI/NodeUI.cs"
 "Assets/Scripts/UI/Pause.cs"

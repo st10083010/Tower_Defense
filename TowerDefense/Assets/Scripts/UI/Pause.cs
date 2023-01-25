@@ -7,6 +7,9 @@ public class Pause : MonoBehaviour
 {
     public GameObject pauseUI;
 
+    public SceneFader sceneFader;
+    public string mainMenuName = "MainMenu";
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -31,14 +34,17 @@ public class Pause : MonoBehaviour
     public void Replay()
     {
         // 重新開始
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        BouncePause();
+        sceneFader.FadeTo(SceneManager.GetActiveScene().name);
+        print(SceneManager.GetActiveScene().name);
+        
     }
 
     public void Menu()
     {
         // 選單
-        print("go to menu");
+        BouncePause();
+        sceneFader.FadeTo(mainMenuName);
     }
     
 }

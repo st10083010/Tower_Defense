@@ -10,6 +10,9 @@ public class GameOver : MonoBehaviour
 {
     public TMP_Text roundsText; // 回合數
 
+    public SceneFader sceneFader;
+    public string mainMenuName = "MainMenu"; // 載入場景的字串
+
     void OnEnable() 
     {
         // 每次被啟用時調用
@@ -19,12 +22,12 @@ public class GameOver : MonoBehaviour
     public void Replay()
     {
         // 重玩
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        sceneFader.FadeTo(SceneManager.GetActiveScene().name);
     }
 
     public void Menu()
     {
         // 選單
-        print("go to menu");
+        sceneFader.FadeTo(mainMenuName);
     }
 }

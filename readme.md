@@ -2,10 +2,10 @@ Tower Defense
 開發筆記
 Unity版本: 2021.3.2f1
 最後更新日: 2023-01-24
-開發時數: 53.2
-下次開始觀看: https://www.youtube.com/watch?v=C_Ok4xC_xVU&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=24
-從09:41開始
-暫計: 
+開發時數: 56.7
+下次開始觀看: https://www.youtube.com/watch?v=C_Ok4xC_xVU&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=25
+從頭開始
+暫計:
 
 程式API使用查詢: https://docs.unity3d.com/ScriptReference/index.html
 使用介面查詢: https://docs.unity3d.com/Manual/index.html
@@ -36,6 +36,8 @@ Unity版本: 2021.3.2f1
 11. 可以利用HTML5 tags給文字基本變化(Rich Text)
 12. 當使用`Time.timeScale`控制時間時, 會連動畫一起控制。所以如果要在暫停畫面時繼續動畫, 要把對應動畫(此處是暫停畫面)的`Animator`中的`Update Mode`改成`Unscale Time`
 13. 如果UI的Button要做成動畫, 可以將`Transition`改成`Animation`, 點擊`Auto Generate Animation`產生並製作想要的動畫
+14. `Canvas`的`Sort order`可以變更疊圖順序(圖層概念)
+15. 點選`Main Camera`, 切到`Scene`視窗, 按下`Ctrl + Shift + F`, 可以迅速將`Game`視窗的鏡頭切到當前畫面
 
 額外補充
 關於四元數(Quaternion)
@@ -67,6 +69,8 @@ https://tedsieblog.wordpress.com/2016/07/10/object-pool/
 2023
 01-24
 增加暫停介面與特效; 重構部分程式碼
+增加血量條; 設置場景轉換(未完)
+完成場景設置、選單畫面
 01-23
 增加 販售機制; 販售特效
 01-22
