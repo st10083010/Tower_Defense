@@ -48,6 +48,7 @@ public class EneimiesMovement : MonoBehaviour
     {
         // 走到終點時
         PlayerStats.Lives--;
+        WaveSpawner.EnemiesAlive--;
         Destroy(gameObject);
     }
 }

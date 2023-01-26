@@ -2,10 +2,10 @@ Tower Defense
 開發筆記
 Unity版本: 2021.3.2f1
 最後更新日: 2023-01-24
-開發時數: 56.7
+開發時數: 60.7
 下次開始觀看: https://www.youtube.com/watch?v=C_Ok4xC_xVU&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=25
 從頭開始
-暫計:
+暫計: 01-26 
 
 程式API使用查詢: https://docs.unity3d.com/ScriptReference/index.html
 使用介面查詢: https://docs.unity3d.com/Manual/index.html
@@ -38,7 +38,10 @@ Unity版本: 2021.3.2f1
 13. 如果UI的Button要做成動畫, 可以將`Transition`改成`Animation`, 點擊`Auto Generate Animation`產生並製作想要的動畫
 14. `Canvas`的`Sort order`可以變更疊圖順序(圖層概念)
 15. 點選`Main Camera`, 切到`Scene`視窗, 按下`Ctrl + Shift + F`, 可以迅速將`Game`視窗的鏡頭切到當前畫面
-
+16. 利用`Scroll Rect`可以製作滾動的關卡選擇畫面
+17. 在關卡選擇中, 在`Content`物件上增加`Canvas Renderer`跟`Image`的Component, 並把`Image`的透明度調到0, 就可以解決在滾動時不觸碰按鈕才能滾動的問題
+18. 利用UI中的`Scrollbar`製作側邊滾動條
+19. 使用`PlayerPrefs`儲存玩家進度或資訊時, 並不需要也不會加密, 所以不要儲存機密資訊
 額外補充
 關於四元數(Quaternion)
 https://douduck08.wordpress.com/2016/06/26/usage-of-unity-quaternion/
@@ -64,9 +67,12 @@ https://tedsieblog.wordpress.com/2016/07/10/object-pool/
  > 砲塔在某個時候停止轉動的唯一原因是因為敵人死亡或超出射程。
 7. [ ] 升級砲塔特效
 8. [ ] 全面性的更換材質或建模(盡可能)
+9. [ ] 當最後一波產生後幾秒會結束遊戲`WaveSpawner.cs`中的`SpawnWave`有問題, 獲勝條件的檢查項目不對
 
 
 2023
+01-26
+增加關卡選單、側邊條、重構重生點程式碼, 現在可以一波多種敵人了
 01-24
 增加暫停介面與特效; 重構部分程式碼
 增加血量條; 設置場景轉換(未完)

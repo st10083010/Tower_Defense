@@ -8,6 +8,8 @@ using TMPro;
 /// </summary>
 public class WaveSpawner : MonoBehaviour
 {
+    public static int EnemiesAlive = 0;
+
     public Transform basicEnemyPrefab;
 
     public Transform spawnPoint; // 生成點
@@ -16,14 +18,23 @@ public class WaveSpawner : MonoBehaviour
     private float firstWave = 2.5f; // 第一波在幾秒後產生
     private int currentWave = 0; // 波次
 
-    public TMP_Text waveCountdownText;
+    public WaveController[] waves;
 
+    public TMP_Text waveCountdownText;
+    public GameManager gameManager;
     void Update()
     {
+        if (EnemiesAlive > 0)
+        {
+            return;
+        }
+
+
         if (firstWave <= 0f)
         {
             StartCoroutine(SpawnWave());
             firstWave = timeBetweenWaves;
+            return;
         }
 
         firstWave -= Time.deltaTime;
@@ -35,19 +46,36 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
-        currentWave++;
+        // 計算每波產生的敵人
         PlayerStats.Rounds++;
-        for (int i = 0; i < currentWave; i++)
+        WaveController wave = waves[currentWave];
+        for (int i = 0; i < wave.enemies.Length; i++)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(0.5f);
-            // 每次迭代產生的物件以間隔0.5秒的方式產出
+            for (int j = 0; j < wave.enemies[i].count; j++)
+            {
+                SpawnEnemy(wave.enemies[i].enemy);
+                yield return new WaitForSeconds(1 / wave.rate);
+                // 每次迭代產生的物件以間隔0.5秒的方式產出
+            }
+
         }
+
+        currentWave++;
+
+        if (currentWave == waves.Length)
+        {
+            gameManager.WinLevel();
+            this.enabled = false;
+        }
+
+    
     }
 
-    void SpawnEnemy()
+    void SpawnEnemy(GameObject enemyPrefab)
     {
-        Instantiate(basicEnemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        // 產生敵人
+        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        EnemiesAlive++;
     }
 
 }
