@@ -8,16 +8,12 @@ using TMPro;
 /// </summary>
 public class GameOver : MonoBehaviour
 {
-    public TMP_Text roundsText; // 回合數
+    
 
     public SceneFader sceneFader;
     public string mainMenuName = "MainMenu"; // 載入場景的字串
 
-    void OnEnable() 
-    {
-        // 每次被啟用時調用
-        roundsText.text = $"{PlayerStats.Rounds}";
-    }
+
 
     public void Replay()
     {

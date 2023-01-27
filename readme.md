@@ -2,10 +2,10 @@ Tower Defense
 開發筆記
 Unity版本: 2021.3.2f1
 最後更新日: 2023-01-24
-開發時數: 60.7
+開發時數: 62.3
 下次開始觀看: https://www.youtube.com/watch?v=C_Ok4xC_xVU&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=25
 從頭開始
-暫計: 01-26 
+暫計: 01-27 20:30~22:00
 
 程式API使用查詢: https://docs.unity3d.com/ScriptReference/index.html
 使用介面查詢: https://docs.unity3d.com/Manual/index.html
@@ -67,10 +67,13 @@ https://tedsieblog.wordpress.com/2016/07/10/object-pool/
  > 砲塔在某個時候停止轉動的唯一原因是因為敵人死亡或超出射程。
 7. [ ] 升級砲塔特效
 8. [ ] 全面性的更換材質或建模(盡可能)
-9. [ ] 當最後一波產生後幾秒會結束遊戲`WaveSpawner.cs`中的`SpawnWave`有問題, 獲勝條件的檢查項目不對
+9. [X] 當最後一波產生後幾秒會結束遊戲`WaveSpawner.cs`中的`SpawnWave`有問題, 獲勝條件的檢查項目不對
 
 
 2023
+01-27
+增加獲勝畫面; 修復獲勝條件BUG
+增加
 01-26
 增加關卡選單、側邊條、重構重生點程式碼, 現在可以一波多種敵人了
 01-24

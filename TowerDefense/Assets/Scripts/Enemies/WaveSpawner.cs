@@ -29,6 +29,12 @@ public class WaveSpawner : MonoBehaviour
             return;
         }
 
+        if (currentWave == waves.Length)
+        {
+            gameManager.WinLevel();
+            this.enabled = false;
+        }
+
 
         if (firstWave <= 0f)
         {
@@ -61,13 +67,6 @@ public class WaveSpawner : MonoBehaviour
         }
 
         currentWave++;
-
-        if (currentWave == waves.Length)
-        {
-            gameManager.WinLevel();
-            this.enabled = false;
-        }
-
     
     }
 
