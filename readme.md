@@ -2,24 +2,20 @@
 ## 開發筆記
 Unity版本: 2021.3.2f1  
 最後更新日: 2023-01-29  
-開發時數: 63.8   
-暫計:  
-  
-程式API使用查詢: (https://docs.unity3d.com/ScriptReference/index.html)  
-使用介面查詢: (https://docs.unity3d.com/Manual/index.html)  
-教學影片: (https://www.youtube.com/watch?v=oqidgRQAMB8&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=1)  
-  
-起點是藍色718BF0, 終點是粉色F0A089  
 
 ## 操作說明
 `WSAD`或游標貼邊可以移動鏡頭, 滾輪可以縮放鏡頭  
 左`Ctrl`鎖定鏡頭  
+  
+## 影片Demo
+
+## 遊戲載點
 
 ## 注意事項
 1. UI的text已棄用, 改成`TMPro(TextMesh Pro)`
 具體使用參考: 
- > https://gamedevtraum.com/en/game-and-app-development-with-unity/basic-unity-engine-management/how-to-write-a-text-mesh-pro-text-from-script-in-unity/
- > https://www.cg.com.tw/UnityTextMeshPro/
+ > (https://gamedevtraum.com/en/game-and-app-development-with-unity/basic-unity-engine-management/how-to-write-a-text-mesh-pro-text-from-script-in-unity/)
+ > (https://www.cg.com.tw/UnityTextMeshPro/)
 2. 使用模型時, 須將錨點從`Center`改成`Pivot`, 從`Global`改成`Local`
 3. Scene視窗右上角的`Shading mode`可以切換Scene中的物件渲染方式
 4. 如果需要讓建模旋轉, 可以建立空的`Game Object`在交接處, 讓建模成為他的子物件, 然後旋轉那個空的`Game Object`
@@ -71,9 +67,20 @@ Unity版本: 2021.3.2f1
 8. [ ] 全面性的更換材質或建模(盡可能)
 9. [x] 當最後一波產生後幾秒會結束遊戲`WaveSpawner.cs`中的`SpawnWave`有問題, 獲勝條件的檢查項目不對
 10. [ ] 第二關重製
-
+11. [ ] 增加音效、背景音樂
+12. [ ] 看狀況自架網站說明
+  
+## 其他
+開發時數: 63.8   
+暫計:  
+起點是藍色718BF0, 終點是粉色F0A089  
+  
+程式API使用查詢: (https://docs.unity3d.com/ScriptReference/index.html)  
+使用介面查詢: (https://docs.unity3d.com/Manual/index.html)  
+教學影片: (https://www.youtube.com/watch?v=oqidgRQAMB8&list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0&index=1)  
+  
 ## 更新日誌
-2023  
+### 2023  
 01-28  
 改善UI配色; 調整建造砲塔時的特效  
 01-27  
