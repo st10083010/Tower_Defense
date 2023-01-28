@@ -24,7 +24,7 @@ Unity版本: 2021.3.2f1
 3. Scene視窗右上角的`Shading mode`可以切換Scene中的物件渲染方式
 4. 如果需要讓建模旋轉, 可以建立空的`Game Object`在交接處, 讓建模成為他的子物件, 然後旋轉那個空的`Game Object`
  > 要讓空`Game Object`跟建模的方向一樣, 不然旋轉時畫面會很奇怪
-4.1 簡單來說把建模跟旋轉功能分開, 當想要旋轉建模時, 不更動原先建模的數值, 而是建立新的空`Game Object`, 然後調整那個空的`Game Object`,
+ > 簡單來說把建模跟旋轉功能分開, 當想要旋轉建模時, 不更動原先建模的數值, 而是建立新的空`Game Object`, 然後調整那個空的`Game Object`,
 轉動他的方向軸
 5. 要設置輸入或查看 `axisName(Input.GetAxis())` 的選項，請轉到`Edit > Project Settings > Input Manager`。
 具體使用查看`Script API: Input.GetAxis()`
@@ -72,7 +72,7 @@ Unity版本: 2021.3.2f1
 9. [x] 當最後一波產生後幾秒會結束遊戲`WaveSpawner.cs`中的`SpawnWave`有問題, 獲勝條件的檢查項目不對
 10. [ ] 第二關重製
 
-
+## 更新日誌
 2023  
 01-28  
 改善UI配色; 調整建造砲塔時的特效  
