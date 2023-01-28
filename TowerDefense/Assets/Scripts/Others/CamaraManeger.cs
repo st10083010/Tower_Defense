@@ -6,7 +6,7 @@ using UnityEngine;
 /// </summary>
 public class CamaraManeger : MonoBehaviour
 {
-    // private bool switchCameraMovement = true; // 切換鏡頭移動
+    private bool switchCameraMovement = true; // 切換鏡頭移動
 
     [Header("Attribute")]
     public float scrollSpeed = 5f; // 滾動速度
@@ -30,15 +30,15 @@ public class CamaraManeger : MonoBehaviour
         }
 
 
-        // if (Input.GetKeyDown(KeyCode.Escape))
-        // {
-        //     switchCameraMovement = !switchCameraMovement; // 不直接設置成true或false是因為這樣可以更靈活切換, 而不是只能動一次
-        // }
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            switchCameraMovement = !switchCameraMovement; // 不直接設置成true或false是因為這樣可以更靈活切換, 而不是只能動一次
+        }
 
-        // if (!switchCameraMovement)
-        // {
-        //     return;
-        // }
+        if (!switchCameraMovement)
+        {
+            return;
+        }
 
 
         if (Input.GetKey("w") || (Input.mousePosition.y >= Screen.height - panBorderThickness))
